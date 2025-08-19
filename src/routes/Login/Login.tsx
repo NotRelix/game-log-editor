@@ -23,6 +23,7 @@ const Login = () => {
       } else {
         localStorage.setItem("token", result.token);
       }
+      console.log("Successfully logged in");
     } catch (err) {
       console.error(err);
     }
