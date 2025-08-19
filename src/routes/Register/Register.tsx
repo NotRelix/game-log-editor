@@ -38,6 +38,7 @@ const Register = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, username: e.target.value }));
           }}
+          value={data.username}
           type="text"
           id="username"
           name="username"
@@ -47,6 +48,7 @@ const Register = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, password: e.target.value }));
           }}
+          value={data.password}
           type="password"
           id="password"
           name="password"
@@ -56,6 +58,7 @@ const Register = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, confirmPassword: e.target.value }));
           }}
+          value={data.confirmPassword}
           type="password"
           id="confirmPassword"
           name="confirmPassword"

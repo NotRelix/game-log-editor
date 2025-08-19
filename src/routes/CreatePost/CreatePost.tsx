@@ -41,6 +41,7 @@ const CreatePost = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, title: e.target.value }));
           }}
+          value={data.title}
           type="text"
           id="title"
           name="title"
@@ -50,6 +51,7 @@ const CreatePost = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, body: e.target.value }));
           }}
+          value={data.body}
           type="text"
           id="body"
           name="body"
@@ -59,6 +61,7 @@ const CreatePost = () => {
           onChange={(e) => {
             setData((prev) => ({ ...prev, published: e.target.checked }));
           }}
+          checked={data.published}
           type="checkbox"
           id="published"
           name="published"
