@@ -1,3 +1,4 @@
+import CreatePost from "./CreatePost/CreatePost";
 import Login from "./Login/Login";
 import Posts from "./Posts/Posts";
 import Register from "./Register/Register";
@@ -19,6 +20,10 @@ const routes = [
       {
         path: "users/:userId/posts",
         Component: Posts,
+      },
+      {
+        path: "posts/create",
+        Component: CreatePost,
       },
     ],
   },

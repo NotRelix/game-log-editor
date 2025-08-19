@@ -18,3 +18,9 @@ export interface PostType {
   updatedAt: Date;
   authorId: number;
 }
+
+export interface CreatePostType {
+  title: string;
+  body: string;
+  published: boolean;
+}
