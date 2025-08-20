@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import type { CreatePostType } from "../../types";
+import { Editor } from "@tinymce/tinymce-react";
 
 const emptyPost: CreatePostType = {
   title: "",
@@ -82,6 +83,35 @@ const CreatePost = () => {
           type="file"
           id="headerImg"
           name="headerImg"
+        />
+        <Editor
+          onEditorChange={(content) => {
+            setData((prev) => ({ ...prev, body: content }));
+          }}
+          apiKey="xtq79ommu7urglenigl25zxeleh6igtsvsasixldnzsyosty"
+          init={{
+            plugins: [
+              "autolink",
+              "anchor",
+              "autolink",
+              "charmap",
+              "codesample",
+              "emoticons",
+              "image",
+              "link",
+              "lists",
+              "media",
+              "searchreplace",
+              "table",
+              "visualblocks",
+              "wordcount",
+            ],
+            toolbar:
+              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+            onboarding: false,
+            uploadcare_public_key: "5a35ee7cf26568c9909e",
+          }}
+          initialValue="Welcome to my Blog!"
         />
         <button type="submit">Create Post</button>
       </form>
