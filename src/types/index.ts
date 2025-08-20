@@ -23,4 +23,5 @@ export interface CreatePostType {
   title: string;
   body: string;
   published: boolean;
+  headerImg?: File | null;
 }

@@ -5,6 +5,7 @@ const emptyPost: CreatePostType = {
   title: "",
   body: "",
   published: false,
+  headerImg: null,
 };
 
 const CreatePost = () => {
@@ -13,13 +14,19 @@ const CreatePost = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("title", data.title);
+      formData.append("body", data.body);
+      formData.append("published", String(data.published));
+      if (data.headerImg) {
+        formData.append("headerImg", data.headerImg);
+      }
       const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        body: formData,
       });
       const result = await response.json();
       if (!result.success) {
@@ -65,6 +72,16 @@ const CreatePost = () => {
           type="checkbox"
           id="published"
           name="published"
+        />
+        <label htmlFor="headerImg">Header Image</label>
+        <input
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            setData((prev) => ({ ...prev, headerImg: file }));
+          }}
+          type="file"
+          id="headerImg"
+          name="headerImg"
         />
         <button type="submit">Create Post</button>
       </form>
