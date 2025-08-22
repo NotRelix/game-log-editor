@@ -25,3 +25,11 @@ export interface CreatePostType {
   published: boolean;
   headerImg?: File | null;
 }
+
+export interface EditPostType {
+  title: string;
+  body: string;
+  published: boolean;
+  headerImg?: File | null;
+  headerImgPath: string;
+}

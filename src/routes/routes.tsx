@@ -1,4 +1,5 @@
 import CreatePost from "./CreatePost/CreatePost";
+import EditPost from "./EditPost/EditPost";
 import Login from "./Login/Login";
 import Posts from "./Posts/Posts";
 import Register from "./Register/Register";
@@ -24,6 +25,10 @@ const routes = [
       {
         path: "posts/create",
         Component: CreatePost,
+      },
+      {
+        path: "posts/:postId/edit",
+        Component: EditPost,
       },
     ],
   },
