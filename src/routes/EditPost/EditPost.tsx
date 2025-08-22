@@ -93,13 +93,20 @@ const EditPost = () => {
         <input
           onChange={(e) => {
             const file = e.target.files?.[0];
-            setData((prev) => ({ ...prev, headerImg: file }));
+            if (file) {
+              const previewUrl = URL.createObjectURL(file);
+              setData((prev) => ({
+                ...prev,
+                headerImg: file,
+                headerImgPath: previewUrl,
+              }));
+            }
           }}
           type="file"
           id="headerImg"
           name="headerImg"
         />
-        <img src={data.headerImgPath} alt="" />
+        {data.headerImgPath && <img src={data.headerImgPath} alt="" />}
         <Editor
           onEditorChange={(content) => {
             setData((prev) => ({ ...prev, body: content }));
