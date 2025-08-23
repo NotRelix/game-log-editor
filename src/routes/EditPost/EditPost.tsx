@@ -134,7 +134,7 @@ const EditPost = () => {
             onboarding: false,
             uploadcare_public_key: "5a35ee7cf26568c9909e",
           }}
-          initialValue={data.body}
+          value={data.body}
         />
         <button type="submit">Edit Post</button>
       </form>
