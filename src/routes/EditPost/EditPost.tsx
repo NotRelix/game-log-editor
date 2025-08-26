@@ -38,13 +38,16 @@ const EditPost = () => {
       if (data.headerImg) {
         formData.append("headerImg", data.headerImg);
       }
-      const response = await fetch(`http://localhost:3000/posts/${postId}`, {
-        method: "PATCH",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}posts/${postId}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
       const result = await response.json();
       if (!result.success) {
         console.error(result.messages);
