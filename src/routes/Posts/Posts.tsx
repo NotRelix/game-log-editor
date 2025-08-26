@@ -10,7 +10,7 @@ const Posts = () => {
     const fetchUserPosts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/users/${userId}/posts`,
+          `${import.meta.env.VITE_API_URL}users/${userId}/posts`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
